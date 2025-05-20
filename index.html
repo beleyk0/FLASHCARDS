@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards - Biologia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff0f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .flashcards {
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+            gap: 20px;
+            justify-content: center;
+        }
+        .flashcard {
+            width: 200px;
+            height: 130px;
+            background-color: #ffffff;
+            border: 2px solid #d96ba0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .flashcard:hover {
+            transform: scale(1.05);
+        }
+        .credit {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="flashcards">
+        <div class="flashcard" onclick="flip(this)">O que é fotossíntese?</div>
+        <div class="flashcard" onclick="flip(this)">Qual a função da mitocôndria?</div>
+        <div class="flashcard" onclick="flip(this)">O que é DNA?</div>
+        <div class="flashcard" onclick="flip(this)">Qual o órgão responsável pela filtração do sangue?</div>
+        <div class="flashcard" onclick="flip(this)">O que é ecossistema?</div>
+        <div class="flashcard" onclick="flip(this)">Para que serve a clorofila?</div>
+    </div>
+    <div class="credit"><strong>projeto desenvolvido por izabele</strong></div>
+
+    <script>
+        const questions = [
+            "O que é fotossíntese?",
+            "Qual a função da mitocôndria?",
+            "O que é DNA?",
+            "Qual o órgão responsável pela filtração do sangue?",
+            "O que é ecossistema?",
+            "Para que serve a clorofila?"
+        ];
+        const answers = [
+            "Processo de produção de energia pelas plantas",
+            "Produzir energia para a célula (ATP)",
+            "Material genético dos seres vivos",
+            "Rins",
+            "Conjunto de seres vivos e o ambiente em que vivem",
+            "Absorver luz para a fotossíntese"
+        ];
+
+        function flip(card) {
+            const index = Array.from(document.querySelectorAll('.flashcard')).indexOf(card);
+            card.textContent = card.textContent === questions[index] ? answers[index] : questions[index];
+        }
+    </script>
+</body>
+</html>
